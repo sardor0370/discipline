@@ -1,7 +1,10 @@
 <!doctype html>
 <html lang="uz"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0B0B0C"><title>Intizom</title>
+<meta name="theme-color" content="#0B0B0C">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png"><title>Intizom</title>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Newsreader:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0B0B0C;--cd:#161618;--bd:#26262A;--tx:#F4F4F5;--mu:#A1A1AA;--ac:#4ADE80;--on:#0B0B0C;--or:#FB923C;--rd:#F87171;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -169,4 +172,5 @@ function tick(){F.left--;const e=document.getElementById("ft");if(e)e.textConten
 function shrink(f){return new Promise(r=>{const fr=new FileReader();fr.onload=()=>{const im=new Image();im.onload=()=>{const s=Math.min(1,720/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=im.width*s;c.height=im.height*s;c.getContext("2d").drawImage(im,0,0,c.width,c.height);r(c.toDataURL("image/jpeg",.65))};im.onerror=()=>r("");im.src=fr.result};fr.onerror=()=>r("");fr.readAsDataURL(f)})}
 document.addEventListener("click",e=>{const t=e.target.closest("[data-a]");if(t&&A[t.dataset.a])A[t.dataset.a](t.dataset)});
 render();document.fonts&&document.fonts.ready.then(mv);setTimeout(()=>{const s=document.getElementById("sp");s.style.opacity=0;setTimeout(()=>s.remove(),500)},2200);
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 </script></body></html>
